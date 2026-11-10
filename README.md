@@ -1,6 +1,6 @@
 # Bestellen per Rückwärtsrechnung – Streamlit-Demo
 
-<!-- Live-Link nach dem Deploy hier einsetzen (Leerzeile davor und danach). -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-bestell-rueckwaerts-demo.streamlit.app/)**
 
 Erste Demo der Linie **Bestandspolitiken** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Ein Artikel, eine Entscheidung je Periode („wie viel bestellen?“), Poisson-Nachfrage, Rückstand. Die Demo **bestimmt** die Bestellregel per exakter Rückwärtsrechnung (Bellman), statt sie vorzugeben; nach dem Abgleich der README-Texte der älteren Nachbar-Demos des Portfolios tut das keine von ihnen. Der Zustand ist hier eine einzige Zahl, die Regel eine einfache.
 
