@@ -46,18 +46,6 @@ ASSUMPTIONS_MARKDOWN = f"""
 """
 
 MATH_MARKDOWN = r"""
-**Lesehilfe.** Gegeben sind die Nachfrage $D$ je Periode (Poisson), die Lieferzeit $L$, die Kosten $h$, $p$ und $c$ und die Zahl $n$ der noch zu entscheidenden Perioden. Gesucht ist für jede Bestandsposition $x$ die beste Bestellung.
-
-| Symbol | Bedeutung |
-|---|---|
-| $x$ | Bestandsposition: Bestand plus Bestellungen unterwegs minus Rückstand |
-| $y$ | Bestandsposition nach der Bestellung (Auffüllniveau), $y \ge x$ |
-| $D^{(L+1)}$ | Nachfrage über die Wiederbeschaffungszeit, also die Summe von $L + 1$ Perioden |
-| $G(y)$ | erwartete Lager- und Rückstandskosten einer Periode bei Niveau $y$ |
-| $H_n(y)$ | Wert, wenn bei $n$ Rest-Perioden auf $y$ aufgefüllt wird (ohne den Anteil $-c\,x$) |
-| $V_n(x)$ | kleinste erwartete Kosten bei Position $x$ und $n$ Rest-Perioden |
-| $S_n$ | kleinstes Minimum von $H_n$: Aufziehniveau bei $n$ Rest-Perioden |
-
 **Kosten einer Periode.** Wer auf $y$ auffüllt, zahlt für die Periode, in der die Bestellung ankommt:
 
 $$G(y) = \mathbb{E}\left[\, h\,(y - D^{(L+1)})^{+} + p\,(D^{(L+1)} - y)^{+} \right]$$

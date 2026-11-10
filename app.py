@@ -75,6 +75,17 @@ with st.container(key="kopf"):
     st.title("📦 Bestellen per Rückwärtsrechnung")
 st.markdown(INTRO_MARKDOWN)
 
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/bestell-rueckwaerts-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Ein Lager bestellt in jeder **Periode** (etwa jede Woche) einen Artikel nach, und niemand weiß vorher, wie viel gekauft wird. Die Demo gibt keine Bestellregel vor, sie **findet** sie: Sie rechnet von der letzten Periode **rückwärts** zur ersten und fragt in jeder, wie viel zu bestellen am besten ist. Heraus kommt eine einfache Regel: auf ein festes Niveau auffüllen (**Base-Stock**). Das Niveau ist ein **Quantil** der Nachfrage über die Zeit bis zur Lieferung, also der Bestand, der diese Nachfrage mit einer vom Kostenverhältnis bestimmten Wahrscheinlichkeit deckt. Das gilt im Modell der Demo, also bei zufälliger Nachfrage nach einer festen Verteilung (Poisson), Nachlieferung fehlender Ware und ohne Einkaufspreis. Mit Einkaufspreis weichen die letzten Perioden ab. Die Zahlen stammen aus erzeugten Beispielen, nicht aus echten Lagerdaten.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/bestell-rueckwaerts-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
+
 with st.expander("So funktioniert die Rückwärtsrechnung", expanded=True):
     st.markdown(HOW_IT_WORKS_MARKDOWN)
 
@@ -253,6 +264,25 @@ with st.expander("⚠️ Annahmen, Grenzen und bekannte Probleme"):
     st.markdown(ASSUMPTIONS_MARKDOWN)
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/bestell-rueckwaerts-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind die Nachfrage $D$ je Periode (Poisson), die Lieferzeit $L$, die Kosten $h$, $p$ und $c$ und die Zahl $n$ der noch zu entscheidenden Perioden. Gesucht ist für jede Bestandsposition $x$ die beste Bestellung.
+
+| Symbol | Bedeutung |
+|---|---|
+| $x$ | Bestandsposition: Bestand plus Bestellungen unterwegs minus Rückstand |
+| $y$ | Bestandsposition nach der Bestellung (Auffüllniveau), $y \ge x$ |
+| $D^{(L+1)}$ | Nachfrage über die Wiederbeschaffungszeit, also die Summe von $L + 1$ Perioden |
+| $G(y)$ | erwartete Lager- und Rückstandskosten einer Periode bei Niveau $y$ |
+| $H_n(y)$ | Wert, wenn bei $n$ Rest-Perioden auf $y$ aufgefüllt wird (ohne den Anteil $-c\,x$) |
+| $V_n(x)$ | kleinste erwartete Kosten bei Position $x$ und $n$ Rest-Perioden |
+| $S_n$ | kleinstes Minimum von $H_n$: Aufziehniveau bei $n$ Rest-Perioden |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/bestell-rueckwaerts-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(MATH_MARKDOWN)
 
 st.markdown("---")

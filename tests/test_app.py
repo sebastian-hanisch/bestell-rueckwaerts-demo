@@ -89,7 +89,7 @@ def test_expanders_by_title_carry_the_shared_texts():
     for wanted in ("⚠️ Annahmen, Grenzen und bekannte Probleme", "📐 Mathematische Formulierung"):
         assert wanted in by_title, list(by_title)
     assert by_title["⚠️ Annahmen, Grenzen und bekannte Probleme"].markdown[0].value.strip() == ASSUMPTIONS_MARKDOWN.strip()
-    assert by_title["📐 Mathematische Formulierung"].markdown[0].value.strip() == MATH_MARKDOWN.strip()
+    assert MATH_MARKDOWN.strip() in [m.value.strip() for m in by_title["📐 Mathematische Formulierung"].markdown]  # Lesehilfe-Block steht davor
 
 
 def test_every_display_equation_is_its_own_block():
